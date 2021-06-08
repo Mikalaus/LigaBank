@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ligabank</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__center-wrapper center-wrapper">
+                <div class="header__logo logo">
+                    <img class="logo__image" src="./img/logo.png" alt="Логотип">
+                    <div class="logo__name">
+                        ЛИГА Банк
+                    </div>
+                </div>
+
+                <nav class="header__navigation">
+                    <ul class="header__nav-items">
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">Услуги</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">Рассчитать кредит</a></li>
+                        <li class="header__nav-item header__nav-link--active"><a href="#" class="header__nav-link">Конвертер валют</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">контакты</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__nav-link">задать вопрос</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__log-in">
+                    Войти в Интернет-банк
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="credit-section">
+                <div class="credit-section__center-wrapper center-wrapper">
+                    <div class="credit-section__credit">
+                        <div class="credit-section__title">
+                            <h1 class="credit-section__bank-name">Лига Банк</h1>
+                            <span class="credit-section__description">Кредиты на любой случай</span>
+                        </div>
+                        
+                        <button type="button" class="credit-section__count-credit-button">Рассчитать кредит</button>
+                    </div>
+
+                    <div class="credit-section__credit-cards">
+                        <div class="credit-section__card credit-section__card--black"></div>
+                        <div class="credit-section__card credit-section__card--white"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="curreny-converter">
+                <div class="currency-converter__center-wrapper center-wrapper">
+                    <form action="post" class="currency-converter__form">
+                        <h2 class="currency-converter__title">Конвертер валют</h2>
+
+                        <div class="currency-converter__converter">
+                            <div class="currency-converter__converter-input converter-input">
+                                <span class="converter-input__label">У меня есть</span>
+                                <div class="converter-input__inputs">
+                                    <input class="converter-input__amount" type="number">
+                                    <button class="converter-input__type" type="button" value="">
+                                </div>
+                                
+                            </div>
+        
+                            <div class="currency-converter__converter-input converter-input">
+                                <span class="converter-input__label">Хочу приобрести</span>
+                                <div class="converter-input__inputs">
+                                    <input class="converter-input__amount" type="number">
+                                    <button class="converter-input__type" type="button" value="Сохранить результат">
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+    
+                        <div class="currency-converter__submit-block">
+                            <input type="date" class="currency-converter__date-input">
+                            <button type="submit" class="currency-converter__submit-button blue-button"></button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="covertation-history">
+                <h2 class="convertation-history__title">История конвертации</h2>
+                <div class="convertation-history__convertations">
+                    <ul class="convertation-history__convertations__list">
+                    </ul>
+                </div>
+                <button type="reset" class="convertation-history__clean-history blue-button" value="Очистить историю">
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__central-wrapper central-wrapper">
+                <div class="footer__about-company">
+                    <div class="footer__logo logo">
+                        <img class="logo__image" src="" alt="Логотип">
+                        <div class="logo__name">
+                            ЛИГА Банк
+                        </div>
+                    </div>
+
+                    <span class="footer__company-copyright">
+                        150015, г. Москва, ул. Московская, д. 32<br>
+                        Генеральная лицензия Банка России №1050<br>
+                        Ⓒ Лига Банк, 2019
+                    </span>
+                </div>
+
+                <nav class="footer__nav">
+                    <ul class="footer__nav-items">
+                        <li class="footer__nav-item"><a href="#" class="footer__link">Услуги</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__link">Рассчитать кредит</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__link">Контакты</a></li>
+                        <li class="footer__nav-item"><a href="#" class="footer__link">Задать вопрос</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer__phone">
+                    <span class="footer__phone-number footer__phone-number--special">*0904</span>
+                    <span class="footer__phone-description">Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2</span>
+                </div>
+
+                <div class="footer__phone">
+                    <span class="footer__phone-number footer__phone-number--general">8 800 111 22 33</span>
+                    <span class="footer__phone-description">Бесплатный для всех городов России</span>
+                </div>
+
+                <div class="footer__media-links">
+                    <ul class="footer__media-links-items">
+                        <li class="footer__media-links-item footer__media-links-item--facebook"><a href="" class="footer__media-link"></a></li>
+                        <li class="footer__media-links-item footer__media-links-item--instagram"><a href="" class="footer__media-link"></a></li>
+                        <li class="footer__media-links-item footer__media-links-item--twitter"><a href="" class="footer__media-link"></a></li>
+                        <li class="footer__media-links-item footer__media-links-item--youtube"><a href="" class="footer__media-link"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

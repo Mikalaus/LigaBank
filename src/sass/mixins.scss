@@ -1,0 +1,15 @@
+@mixin blue-button {
+    font-family: $med;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: #F6F7FF;
+
+    background: #2C36F2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
