@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-date-picker';
 import {fetchCurrencyList} from '../../store/api-actions';
-import {addConvertationToHistoryListAction, setCurrencyConvertationDateAction} from '../../store/actions';
+import {addConvertationToHistoryListAction} from '../../store/actions';
 import {getQuotation} from '../../store/converter-data/selectors';
 import {connect} from 'react-redux';
 import {getWeekAgo, getDate} from '../../util';
