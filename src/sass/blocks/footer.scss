@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     margin-top: 107px;
-    padding: 60px 0;
+    padding: 61px 0px 40px 19px;
     background-color: #F6F7FF;
 }
 
 .footer__center-wrapper {
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .footer__about-company {
@@ -29,6 +29,7 @@
     width: 144px;
     margin-top: -3px;
     padding-left: 0px;
+    margin-left: 5px;
 }
 
 .footer__nav-item {
@@ -106,10 +107,6 @@
     justify-content: space-between;
 }
 
-.footer__media-link {
-    
-}
-
 .footer__media-links-item {
 
     color: rgba(0, 0, 0, 0);
@@ -137,5 +134,99 @@
         width: 16px;
         height: 16px;
         background: url("../img/youtube.svg") center no-repeat;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 107px;
+        padding: 29px 0px 40px 0px;
+        background-color: #F6F7FF;
+    }
+
+    .footer__center-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 239px;
+        flex-wrap: wrap;
+        padding-left: 40px;
+        position: relative;
+    }
+
+    .footer__nav {
+        position: absolute;
+        padding-left: 4px;
+        top: 50px;
+    }
+
+    .footer__company-copyright {
+        margin-top: -6px;
+        padding-left: 4px;
+    }
+
+    .footer__about-company {
+        height: 100%;
+        width: 280px;
+        margin-right: -65px;
+    }
+
+    .footer__logo {
+        margin-bottom: 174px;
+    }
+
+    .footer__media-links {
+        width: 117px;
+        margin-left: 3px;
+    }
+
+    .footer__phone {
+        margin-bottom: 21px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .footer {
+        margin-top: 95px;
+        padding: 0px 0 53px 0;
+    }
+
+    .footer__center-wrapper {
+        flex-direction: column;
+        height: auto;
+        flex-wrap: nowrap;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .footer__link {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .footer__company-copyright {
+        display: none;
+    }
+
+    .footer__nav {
+        position: relative;
+        margin-bottom: 4px;
+    }
+
+    .footer__about-company {
+        margin-bottom: 15px;
+    }
+
+    .footer__phone {
+        margin-bottom: 12px;
+        margin-left: -5px;
+    }
+
+    .footer__media-links {
+        width: 117px;
+        margin-top: 4px;
     }
 }

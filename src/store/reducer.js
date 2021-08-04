@@ -1,13 +1,16 @@
 import {combineReducers} from 'redux';
-import {converterData} from './converter-data/converter-data';
-import {historyData} from './history-data/history-data';
+import {creditCalc} from './credit-calc/credit-calc';
+import {params} from './params/params';
+import {offer} from './offer/offer';
 
 export const NameSpace = {
-  CONVERTER: `CONVERTER`,
-  HISTORY: `HISTORY`
+  CREDIT_CALC: `CREDIT_CALC`,
+  PARAMS: `PARAMS`,
+  OFFER: `OFFER`
 };
 
 export default combineReducers({
-  [NameSpace.CONVERTER]: converterData,
-  [NameSpace.HISTORY]: historyData,
+  [NameSpace.CREDIT_CALC]: creditCalc,
+  [NameSpace.PARAMS]: params,
+  [NameSpace.OFFER]: offer
 });
