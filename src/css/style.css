@@ -416,7 +416,6 @@ ul {
 .slick-dots {
   bottom: 45px !important;
   left: 10px;
-  width: 40px;
   height: 8px;
   display: flex;
   justify-content: space-between; }
@@ -534,7 +533,6 @@ ul {
   .slick-dots {
     bottom: 14px !important;
     left: 3px;
-    width: 30px;
     height: 6px;
     display: flex;
     justify-content: space-between; }
@@ -676,6 +674,8 @@ ul {
   background: #E0E0E0; }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+  .tabs {
+    margin-bottom: 20px; }
   .tabs__title {
     font-size: 18px;
     line-height: 25px; }
@@ -715,8 +715,8 @@ ul {
     margin-left: -10px; } }
 
 @media (max-width: 767px) {
-  .tabs .slick-dots {
-    bottom: -50px !important; }
+  .tabs {
+    margin-bottom: 20px; }
   .tabs__title {
     font-size: 16px;
     line-height: 22px; }
@@ -729,6 +729,7 @@ ul {
   .tabs__center-wrapper {
     padding-left: 15px; }
   .tabs__tab {
+    padding-bottom: 0;
     padding-left: 0;
     padding-top: 10px;
     min-width: 300px; }
@@ -774,7 +775,7 @@ ul {
     line-height: 16px; }
   .tabs .slick-dots {
     height: 6px;
-    bottom: -35px !important;
+    bottom: -25px !important;
     display: flex;
     left: -10px; }
     .tabs .slick-dots li {
