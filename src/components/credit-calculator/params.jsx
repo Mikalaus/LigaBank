@@ -53,7 +53,7 @@ const Params = ({
 
     const checkCreditPercentPerMonth = () => {
         if (CREDIT_TYPE.MORTGAGE === creditType) {
-            if (document.querySelector(`#first-payment`).value >= percentPayment.MIN_FOR_DISCOUNT) {
+            if (document.querySelector(`#first-payment`).value / document.querySelector(`#credit-input`).value >= percentPayment.MIN_FOR_DISCOUNT) {
                 onCreditPercentChange(percentPayment.MORE_THAN_MIN)
             } else {
                 onCreditPercentChange(percentPayment.LESS_THAN_MIN)
@@ -84,24 +84,23 @@ const Params = ({
             document.querySelector(`.credit-calc__credit-input-block-wrapper`).classList.add(`credit-calc__credit-input-block-wrapper--incorrect`);
         } else {
             document.querySelector(`.credit-calc__credit-input-block-wrapper`).classList.remove(`credit-calc__credit-input-block-wrapper--incorrect`);
-            checkCreditPercentPerMonth()
             firstPaymentPercent.setAttribute("max", getMaxFirstPaymentPercent())
             evt.target.closest(`div`).querySelector(`.credit-calc__params-custom-input`).textContent = Number(creditAmountInput.value).toLocaleString('ru') + ` рублей`;
             firstPaymentCustomInput.textContent = Number(creditAmountInput.value * firstPayment.PERCENT).toLocaleString('ru') + ` рублей`;
             firstPaymentInput.value = creditAmountInput.value * firstPayment.PERCENT;
             firstPaymentPercent.value = firstPayment.PERCENT * 100;
             onCreditSumChange(creditAmountInput.value - motherCapital - firstPaymentInput.value)
+            checkCreditPercentPerMonth();
+            onFirstPaymentInput(Number(document.querySelector(`#first-payment`).value) + Number(motherCapital))
         }        
     }, 1000);
 
     const firstPaymentInputValidationCheck = debounce(() => {
-        checkCreditPercentPerMonth()
         const firstPaymentInput =  document.querySelector(`#first-payment`);
         const firstPaymentPercent = document.querySelector(`#first-payment-percent`);
         const creditAmountInput = document.querySelector(`#credit-input`);
 
         document.querySelector(`#first-payment-percent`).value = firstPayment.PERCENT * 100;
-        console.log(motherCapital)
 
         const MAX = creditAmountInput.value - motherCapital - minCredit;
         if (document.querySelector(`#first-payment`).value < creditAmountInput.value * firstPayment.PERCENT) {
@@ -113,9 +112,11 @@ const Params = ({
             onFirstPaymentChange(true); 
         }
         firstPaymentPercent.setAttribute("max", getMaxFirstPaymentPercent());
+        firstPaymentPercent.value = firstPaymentInput.value / creditAmountInput.value * 100
         onCreditSumChange(creditAmountInput.value - motherCapital - firstPaymentInput.value)
         firstPaymentInput.closest(`div`).querySelector(`.credit-calc__params-custom-input`).textContent = Number(firstPaymentInput.closest(`div`).querySelector(`.credit-calc__credit-input`).value).toLocaleString('ru') + ` рублей`;
-        onFirstPaymentInput(document.querySelector(`#first-payment`).value)
+        onFirstPaymentInput(Number(document.querySelector(`#first-payment`).value) + Number(motherCapital))
+        checkCreditPercentPerMonth()
     }, 1000);
 
     const creditDurationInputValidationCheck = debounce((evt) => {
@@ -131,7 +132,6 @@ const Params = ({
     const firstPaymentRangeCheck = debounce((percent) => {
         const firstPaymentInput =  document.querySelector(`#first-payment`);
         const creditAmountInput = document.querySelector(`#credit-input`);
-        console.log(motherCapital)
 
         if (Number(percent) === getMaxFirstPaymentPercent()) {
             percent = (creditAmountInput.value - minCredit - motherCapital) / document.querySelector(`#credit-input`).value * 100 / 5 * 5;
@@ -205,8 +205,8 @@ const Params = ({
                         <button onClick={decreaseButtonClickHandler()} className="credit-calc__credit-amount-change-button credit-calc__credit-amount-change-button--decrease"></button>
                         
                         <div className="credit-calc__credit-input-wrapper">
-                            <label htmlFor="credit-input" className="credit-calc__params-custom-input">0 рублей</label>
-                            <input onFocus={clearInput()} onChange={creditInputChangeHandler()} id="credit-input" type="number" placeholder="0" className="credit-calc__credit-input" />
+                            <label htmlFor="credit-input" className="credit-calc__params-custom-input">{propertyCost.MIN.toLocaleString('ru') + ` рублей`}</label>
+                            <input onFocus={clearInput()} onChange={creditInputChangeHandler()} id="credit-input" type="number" defaultValue={propertyCost.MIN} className="credit-calc__credit-input" />
                         </div>
                         
 
@@ -219,8 +219,8 @@ const Params = ({
                     <label htmlFor="first-payment-input" className="credit-calc__params-label">Первоначальный взнос</label>
 
                     <div className="credit-calc__credit-input-block-wrapper">
-                        <input onFocus={clearInput()} onChange={firstPaymentInputChangeHandler()} id="first-payment" type="number" placeholder="0" className="credit-calc__credit-input" /> 
-                        <label htmlFor="first-payment" className="credit-calc__params-custom-input">0 рублей</label>
+                        <input onFocus={clearInput()} onChange={firstPaymentInputChangeHandler()} id="first-payment" type="number" defaultValue={propertyCost.MIN * firstPayment.PERCENT} className="credit-calc__credit-input" /> 
+                        <label htmlFor="first-payment" className="credit-calc__params-custom-input">{(propertyCost.MIN * firstPayment.PERCENT).toLocaleString('ru') + ` рублей`}</label>
                         
                     </div>
 
@@ -238,8 +238,8 @@ const Params = ({
 
                     <div className="credit-calc__credit-input-block-wrapper">
                         
-                        <input onFocus={clearInput()} onChange={creditDurationInputHandler()} id="credit-duration-input" placeholder={CREDIT_TYPE.CAR === creditType ? `1` : `5`} type="number" className="credit-calc__credit-input" />
-                        <label htmlFor="credit-duration-input" className="credit-calc__params-custom-input">5 лет</label>
+                        <input onFocus={clearInput()} onChange={creditDurationInputHandler()} id="credit-duration-input" defaultValue={CREDIT_TYPE.CAR === creditType ? `1` : `5`} type="number" className="credit-calc__credit-input" />
+                        <label htmlFor="credit-duration-input" className="credit-calc__params-custom-input">{creditDurationInfo.MIN + getDurationName(creditDurationInfo.MIN)}</label>
                     </div>
 
                     <div  className="credit-calc__range">

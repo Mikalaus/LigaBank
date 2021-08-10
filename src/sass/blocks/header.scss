@@ -7,6 +7,7 @@
 
 .header__log-in-mobile-icon {
     display: none;
+    cursor: pointer;
 }
 
 .header__center-wrapper {
@@ -147,13 +148,14 @@
     
     .header__mobile-menu {
         display: block;
+        cursor: pointer;
     }
 
     .header__menu {
         position: absolute;
         width: 100vw;
         padding-bottom: 30px;
-        top: 40px;
+        top: 30px;
         left: -20px;
         padding-left: 20px;
         flex-direction: column;

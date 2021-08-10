@@ -13,6 +13,7 @@ const SuccessOfferPopup = ({isSuccess, onClosePopup}) => {
         if (evt.key === `Escape`) {
             onClosePopup();
             window.removeEventListener(`keydown`, closePopupByEsc)
+            document.querySelector(`html`).classList.remove(`overflow-hidden`)
         }
     }
 
@@ -22,6 +23,7 @@ const SuccessOfferPopup = ({isSuccess, onClosePopup}) => {
 
     const closeButtonClickHandler = () => {
         onClosePopup();
+        document.querySelector(`html`).classList.remove(`overflow-hidden`)
     }
 
     return (

@@ -8,6 +8,7 @@ const LoginPopup = () => {
     const closePopupHandler = () => {
         document.querySelector(`.login-popup`).classList.add(`visually-hidden`);
         window.removeEventListener(`keydown`, closePopupByEsc)
+        document.querySelector(`html`).classList.remove(`overflow-hidden`)
     }
 
     const changePasswordButonClickHandler = () => {
@@ -37,13 +38,13 @@ const LoginPopup = () => {
                     <label htmlFor="login" className="login-popup__label">Логин</label>
                     <input onInput={(evt) => {
                         localStorage.setItem('login', evt.target.value)
-                    }} type="text" id="login" className="login-popup__input login-popup__input--login" />
+                    }} type="text" id="login" className="login-popup__input login-popup__input--login" required={true}/>
 
                     <label htmlFor="password" className="login-popup__label">Пароль</label>
                     <div className="login-popup__input-wrapper">
                         <input onInput={(evt) => {
                             localStorage.setItem('password', evt.target.value)
-                        }} type="password" id="password" className="login-popup__input login-popup__input--password" />
+                        }} type="password" id="password" className="login-popup__input login-popup__input--password" required={true}/>
                         <button type="button" onClick={changePasswordButonClickHandler} className="login-popup__password-change"></button>
                     </div>
 

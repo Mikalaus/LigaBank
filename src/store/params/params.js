@@ -54,10 +54,15 @@ export const params = (state = initialState, action) => {
         },
         motherCapital: true,
         percentPayment: {
-          MIN_FOR_DISCOUNT: 15000000,
+          MIN_FOR_DISCOUNT: 0.15,
           LESS_THAN_MIN: 0.094,
           MORE_THAN_MIN: 0.085,
-        }
+        },
+
+        creditSum: 1080000,
+        creditDuration: 5,
+        creditPercent: 0.094,
+        firstPayment: 120000
       };
 
     case ActionType.SET_CAR_PARAMS:
@@ -87,7 +92,11 @@ export const params = (state = initialState, action) => {
           MORE_THAN_MIN: 0.15,
           ONE_INSURANCE: 0.085,
           BOTH_INSURANCES: 0.035
-        }
+        },
+        creditSum: 400000,
+        creditPercent: 0.16,
+        creditDuration: 1,
+        firstPayment: 100000
       };
 
       case ActionType.SET_IS_CREDIT_ACCEPTED:

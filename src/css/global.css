@@ -12,12 +12,17 @@ body {
   flex-direction: column;
   min-width: 320px; }
 
+html.overflow-hidden {
+  overflow: hidden; }
+
 main {
   flex-grow: 1; }
 
+main.no-events {
+  pointer-events: none; }
+
 footer {
-  flex-shrink: 0;
-  background: black; }
+  flex-shrink: 0; }
 
 a {
   text-decoration: none; }

@@ -18,7 +18,8 @@ const Offer = ({isActive, creditSum, creditDuration, creditType, firstPayment, o
     const submitHandler = () => (evt) => {
         evt.preventDefault();
         onSubmit();
-        onClearInfo()
+        onClearInfo();
+        document.querySelector(`html`).classList.add(`overflow-hidden`)
     }
 
     return (
@@ -38,7 +39,7 @@ const Offer = ({isActive, creditSum, creditDuration, creditType, firstPayment, o
 
                     <li className="credit-calc__request-info-item">
                         <span className="credit-calc__request-info-type">Стоимость {creditType === CREDIT_TYPE.MORTGAGE ? `недвижимости` : `автомобиля`}</span>
-                        <span className="credit-calc__request-info-value credit-calc__request-info-value--credit-amount">{creditSum}</span>
+                        <span className="credit-calc__request-info-value credit-calc__request-info-value--credit-amount">{Number(creditSum) + Number(firstPayment)} рублей</span>
                     </li>
 
                     <li className="credit-calc__request-info-item">

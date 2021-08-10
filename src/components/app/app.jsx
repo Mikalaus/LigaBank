@@ -14,10 +14,12 @@ const App = () => {
     return (
         <>
             <Header logo={logo} />
-            <Slider />
-            <Tabs />
-            <CreditCalc />
-            <Map />
+            <main>
+                <Slider />
+                <Tabs />
+                <CreditCalc />
+                <Map />
+            </main>
             <Footer logo={logo} />
             <LoginPopup />
             <SuccessOfferPopup />

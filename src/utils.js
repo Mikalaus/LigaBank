@@ -2,6 +2,7 @@ const closePopupByEsc = (evt) => {
     if (evt.key === `Escape`) {
         document.querySelector(`.login-popup`).classList.add(`visually-hidden`);
         window.removeEventListener(`keydown`, closePopupByEsc)
+        document.querySelector(`html`).classList.remove(`overflow-hidden`)
     }
 }
 
@@ -28,9 +29,9 @@ const debounce = (func, wait, immediate) => {
 };
 
 const getDurationName = (duration) => {
-    if (duration === 1) {
+    if (duration == 1 || duration == 21) {
         return (` год`);
-    } else if (1 < duration && duration < 5) {
+    } else if ((1 < duration && duration < 5) || (21 < duration && duration < 25)) {
         return (` года`);
     }
 

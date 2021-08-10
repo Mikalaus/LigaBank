@@ -50,6 +50,7 @@
 .credit-calc__create-request-block {
     display: flex;
     flex-direction: column;
+    align-content: space-between;
     flex-wrap: wrap;
 
     &--open {
@@ -95,6 +96,7 @@
         
         .credit-calc__aim-select__content {
             opacity: 1;
+            z-index: 10;
         }
         
         .credit-calc__aim-select__label + .credit-calc__aim-select__input + .credit-calc__aim-select__label {
@@ -153,7 +155,7 @@
     position: absolute;
     top: 58px;
     left: -1px;
-
+    z-index: -10;
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -166,7 +168,6 @@
     border-top-right-radius: 0;
 
     opacity: 0;
-    z-index: 8;
 }
 
 .credit-calc__aim-select__input {
@@ -344,6 +345,10 @@ input::-webkit-inner-spin-button {
     color: #707C87;
 }
 
+.credit-calc__mother-capital {
+    width: 80%;
+}
+
 .credit-calc__mother-capital-checkbox {
     position: absolute;
     z-index: -1;
@@ -383,8 +388,13 @@ input::-webkit-inner-spin-button {
 }
 
 .credit-calc__offer {
-    margin-top: 41px;
-    margin-left: 77px;
+    margin-top: 6px;
+    margin-left: 0px;
+    padding-top: 35px;
+    padding-left: 14px;
+    padding-bottom: 60px;
+    border-radius: 4px;
+    background-color:#F6F7FF;
 }
 
 .credit-calc__offer-info {
@@ -508,7 +518,7 @@ input::-webkit-inner-spin-button {
     line-height: 25px;
     letter-spacing: 0.03em;
 
-    color: #707C87;
+    color: #0A1E32;
 
     border: 1px solid #0A1E32;
     box-sizing: border-box;
@@ -561,7 +571,7 @@ input::-webkit-inner-spin-button {
     }
 
     .credit-calc__center-wrapper {
-        padding-top: 30px;
+        padding-top: 10px;
     }
 
     .credit-calc__create-request-block {
@@ -652,7 +662,7 @@ input::-webkit-inner-spin-button {
 
     .credit-calc__center-wrapper {
         width: 290px;
-        padding-top: 25px;
+        padding-top: 45px;
     }
 
     .credit-calc__params-section:not(:first-of-type) {
@@ -697,6 +707,7 @@ input::-webkit-inner-spin-button {
 
     .credit-calc__mother-capital {
         margin-top: 0px;
+        width: 80%;
     }
 
     .credit-calc__mother-capital-input-label {
@@ -820,5 +831,15 @@ input::-webkit-inner-spin-button {
         margin-top: 10px;
         font-size: 14px;
         line-height: 20px;
+    }
+
+    .calc-credit__decline-block-title {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .calc-credit__decline-block-description {
+        font-size: 16px;
+        line-height: 22px;
     }
 }

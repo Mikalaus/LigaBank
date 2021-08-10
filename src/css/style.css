@@ -12,12 +12,17 @@ body {
   flex-direction: column;
   min-width: 320px; }
 
+html.overflow-hidden {
+  overflow: hidden; }
+
 main {
   flex-grow: 1; }
 
+main.no-events {
+  pointer-events: none; }
+
 footer {
-  flex-shrink: 0;
-  background: black; }
+  flex-shrink: 0; }
 
 a {
   text-decoration: none; }
@@ -92,7 +97,8 @@ ul {
   background-color: #F6F7FF; }
 
 .header__log-in-mobile-icon {
-  display: none; }
+  display: none;
+  cursor: pointer; }
 
 .header__center-wrapper {
   align-items: center;
@@ -191,12 +197,13 @@ ul {
   .header__center-wrapper {
     justify-content: flex-start; }
   .header__mobile-menu {
-    display: block; }
+    display: block;
+    cursor: pointer; }
   .header__menu {
     position: absolute;
     width: 100vw;
     padding-bottom: 30px;
-    top: 40px;
+    top: 30px;
     left: -20px;
     padding-left: 20px;
     flex-direction: column;
@@ -829,6 +836,7 @@ ul {
 .credit-calc__create-request-block {
   display: flex;
   flex-direction: column;
+  align-content: space-between;
   flex-wrap: wrap; }
   .credit-calc__create-request-block--open {
     height: 750px; }
@@ -859,7 +867,8 @@ ul {
     .credit-calc__aim-select[data-state="active"] .credit-calc__aim-select__title::after {
       transform: translate(3px, -50%) rotate(45deg); }
     .credit-calc__aim-select[data-state="active"] .credit-calc__aim-select__content {
-      opacity: 1; }
+      opacity: 1;
+      z-index: 10; }
     .credit-calc__aim-select[data-state="active"] .credit-calc__aim-select__label + .credit-calc__aim-select__input + .credit-calc__aim-select__label {
       height: 60px; }
 
@@ -897,6 +906,7 @@ ul {
   position: absolute;
   top: 58px;
   left: -1px;
+  z-index: -10;
   display: flex;
   flex-direction: column;
   width: 600px;
@@ -907,8 +917,7 @@ ul {
   border-radius: 4px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  opacity: 0;
-  z-index: 8; }
+  opacity: 0; }
 
 .credit-calc__aim-select__input {
   display: none; }
@@ -1055,6 +1064,9 @@ input::-webkit-inner-spin-button {
   line-height: 20px;
   color: #707C87; }
 
+.credit-calc__mother-capital {
+  width: 80%; }
+
 .credit-calc__mother-capital-checkbox {
   position: absolute;
   z-index: -1;
@@ -1091,8 +1103,13 @@ input::-webkit-inner-spin-button {
   background-image: url("../img/checkbox-active.svg"); }
 
 .credit-calc__offer {
-  margin-top: 41px;
-  margin-left: 77px; }
+  margin-top: 6px;
+  margin-left: 0px;
+  padding-top: 35px;
+  padding-left: 14px;
+  padding-bottom: 60px;
+  border-radius: 4px;
+  background-color: #F6F7FF; }
 
 .credit-calc__offer-info {
   margin-top: 24px;
@@ -1193,7 +1210,7 @@ input::-webkit-inner-spin-button {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.03em;
-  color: #707C87;
+  color: #0A1E32;
   border: 1px solid #0A1E32;
   box-sizing: border-box;
   border-radius: 4px;
@@ -1232,7 +1249,7 @@ input::-webkit-inner-spin-button {
   .credit-calc__params-section:not(:first-of-type) {
     margin-bottom: 15px; }
   .credit-calc__center-wrapper {
-    padding-top: 30px; }
+    padding-top: 10px; }
   .credit-calc__create-request-block {
     height: auto;
     width: 678px; }
@@ -1286,7 +1303,7 @@ input::-webkit-inner-spin-button {
     padding-top: 0; }
   .credit-calc__center-wrapper {
     width: 290px;
-    padding-top: 25px; }
+    padding-top: 45px; }
   .credit-calc__params-section:not(:first-of-type) {
     margin-bottom: 10px; }
   .credit-calc__create-request-block {
@@ -1312,7 +1329,8 @@ input::-webkit-inner-spin-button {
     font-size: 14px;
     line-height: 20px; }
   .credit-calc__mother-capital {
-    margin-top: 0px; }
+    margin-top: 0px;
+    width: 80%; }
   .credit-calc__mother-capital-input-label {
     font-size: 14px;
     line-height: 20px; }
@@ -1384,7 +1402,13 @@ input::-webkit-inner-spin-button {
     width: 100%;
     margin-top: 10px;
     font-size: 14px;
-    line-height: 20px; } }
+    line-height: 20px; }
+  .calc-credit__decline-block-title {
+    font-size: 18px;
+    line-height: 25px; }
+  .calc-credit__decline-block-description {
+    font-size: 16px;
+    line-height: 22px; } }
 
 .map {
   margin-top: 134px;
@@ -1619,7 +1643,7 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 20;
-  overflow-y: hidden; }
+  overflow: scroll; }
 
 .login-popup__title-block {
   display: flex;
@@ -1740,6 +1764,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 20; }
 
