@@ -549,7 +549,9 @@ ul {
       background: #2028B6;
       border-radius: 50%; }
       .slick-dots li button::before {
-        display: none; } }
+        display: none; }
+  .slick-arrow {
+    display: none !important; } }
 
 .tabs {
   display: flex;
