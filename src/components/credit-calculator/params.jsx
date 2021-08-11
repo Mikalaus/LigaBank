@@ -171,13 +171,25 @@ const Params = ({
 
     const increaseButtonClickHandler = () => (evt) => {
         creditInputValidationCheck(evt);
-        document.querySelector(`#credit-input`).value = Number(document.querySelector(`#credit-input`).value) + propertyCost.STEP;
+        if (Number(document.querySelector(`#credit-input`).value) + propertyCost.STEP < propertyCost.MIN) {
+            document.querySelector(`#credit-input`).value = propertyCost.MIN;
+        } else if (Number(document.querySelector(`#credit-input`).value) + propertyCost.STEP > propertyCost.MAX) {
+            document.querySelector(`#credit-input`).value = propertyCost.MAX;
+        } else {
+            document.querySelector(`#credit-input`).value = Number(document.querySelector(`#credit-input`).value) + propertyCost.STEP
+        }
         evt.target.closest(`div`).querySelector(`.credit-calc__params-custom-input`).textContent = Number(document.querySelector(`#credit-input`).value).toLocaleString('ru') + ` рублей`;
     }
 
     const decreaseButtonClickHandler = () => (evt) => {
         creditInputValidationCheck(evt);
-        document.querySelector(`#credit-input`).value = Number(document.querySelector(`#credit-input`).value) - propertyCost.STEP;
+        if (Number(document.querySelector(`#credit-input`).value) - propertyCost.STEP < propertyCost.MIN) {
+            document.querySelector(`#credit-input`).value = propertyCost.MIN;
+        } else if (Number(document.querySelector(`#credit-input`).value) - propertyCost.STEP > propertyCost.MAX) {
+            document.querySelector(`#credit-input`).value = propertyCost.MAX;
+        } else {
+            document.querySelector(`#credit-input`).value = Number(document.querySelector(`#credit-input`).value) - propertyCost.STEP
+        }
         evt.target.closest(`div`).querySelector(`.credit-calc__params-custom-input`).textContent = Number(document.querySelector(`#credit-input`).value).toLocaleString('ru') + ` рублей`;
     }
 
