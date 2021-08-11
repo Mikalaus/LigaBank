@@ -327,6 +327,9 @@ ul {
   justify-content: center;
   background-color: #2C36F2; }
 
+.slick-next {
+  display: none !important; }
+
 .slider__center-wrapper {
   height: 400px;
   box-sizing: border-box;
@@ -422,7 +425,6 @@ ul {
 
 .slick-dots {
   bottom: 45px !important;
-  left: 10px;
   height: 8px;
   display: flex;
   justify-content: space-between; }
@@ -1414,7 +1416,6 @@ input::-webkit-inner-spin-button {
 
 .map {
   margin-top: 134px;
-  width: 100%;
   padding: 0px;
   display: flex;
   justify-content: center; }
