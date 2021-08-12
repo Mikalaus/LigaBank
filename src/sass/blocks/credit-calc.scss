@@ -654,14 +654,14 @@ input::-webkit-inner-spin-button {
 
 @media (max-width: 767px) {
     .credit-calc {
-        width: 290px;
         padding-left: 7px;
+        padding-right: 7px;
         margin-bottom: 54px;
         padding-top: 0;
     }
 
     .credit-calc__center-wrapper {
-        width: 290px;
+        width: 100%;
         padding-top: 45px;
     }
 
@@ -671,7 +671,7 @@ input::-webkit-inner-spin-button {
 
     .credit-calc__create-request-block {
         height: auto;
-        width: 290px;
+        width: 100%;
     }
 
     .credit-calc__main-title {
@@ -692,7 +692,7 @@ input::-webkit-inner-spin-button {
     }
 
     .credit-calc__aim {
-        width: 290px;
+        width: 100%;
         margin-bottom: 10px;
     }
 
@@ -717,14 +717,15 @@ input::-webkit-inner-spin-button {
 
     .credit-calc__aim-select__title {
         padding-left: 13px;
+        width: 100%;
     }
 
     .credit-calc__aim-select__content {
-        width: 290px;
+        width: calc(100% + 2px);
     }
 
     .credit-calc__aim-select__label {
-        width: 288.5px;
+        width: 100%;
     }
 
     .credit-calc__offer {

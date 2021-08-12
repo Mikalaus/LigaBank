@@ -10,14 +10,14 @@ const Header = ({logo}) => {
         document.querySelector(`.header__menu`).classList.toggle(`header__menu--mobile-hidden`);
         document.querySelector(`.header__mobile-menu-cross`).classList.toggle(`visually-hidden`);
         document.querySelector(`.header__log-in-mobile-icon`).classList.toggle(`visually-hidden`);
-        document.querySelector(`main`).classList.toggle(`no-events`);
+        document.querySelector(`html`).classList.toggle(`overflow-hidden`)
     }
 
     const mobileMenuCrossClickHandler = () => {
         document.querySelector(`.header__menu`).classList.toggle(`header__menu--mobile-hidden`);
         document.querySelector(`.header__mobile-menu-cross`).classList.toggle(`visually-hidden`);
         document.querySelector(`.header__log-in-mobile-icon`).classList.toggle(`visually-hidden`);
-        document.querySelector(`main`).classList.remove(`no-events`);
+        document.querySelector(`html`).classList.remove(`overflow-hidden`)
     }
 
     const windowKeydownHandler = (evt) => closePopupByEsc;
@@ -34,6 +34,9 @@ const Header = ({logo}) => {
         document.querySelector(`.login-popup__input--login`).focus();
         window.addEventListener(`keydown`, windowKeydownHandler());
         document.querySelector(`html`).classList.add(`overflow-hidden`);
+        document.querySelector(`.header__menu`).classList.toggle(`header__menu--mobile-hidden`);
+        document.querySelector(`.header__mobile-menu-cross`).classList.toggle(`visually-hidden`);
+        document.querySelector(`.header__log-in-mobile-icon`).classList.toggle(`visually-hidden`);
     }
 
     return (

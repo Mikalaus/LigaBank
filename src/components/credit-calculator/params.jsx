@@ -99,6 +99,7 @@ const Params = ({
         const firstPaymentInput =  document.querySelector(`#first-payment`);
         const firstPaymentPercent = document.querySelector(`#first-payment-percent`);
         const creditAmountInput = document.querySelector(`#credit-input`);
+        const percentAmount = document.querySelector(`#payment-percent`);
 
         document.querySelector(`#first-payment-percent`).value = firstPayment.PERCENT * 100;
 
@@ -113,6 +114,7 @@ const Params = ({
         }
         firstPaymentPercent.setAttribute("max", getMaxFirstPaymentPercent());
         firstPaymentPercent.value = firstPaymentInput.value / creditAmountInput.value * 100
+        percentAmount.textContent = (firstPaymentInput.value / creditAmountInput.value * 100).toFixed(0) + `%`
         onCreditSumChange(creditAmountInput.value - motherCapital - firstPaymentInput.value)
         firstPaymentInput.closest(`div`).querySelector(`.credit-calc__params-custom-input`).textContent = Number(firstPaymentInput.closest(`div`).querySelector(`.credit-calc__credit-input`).value).toLocaleString('ru') + ` рублей`;
         onFirstPaymentInput(Number(document.querySelector(`#first-payment`).value) + Number(motherCapital))
@@ -132,15 +134,19 @@ const Params = ({
     const firstPaymentRangeCheck = debounce((percent) => {
         const firstPaymentInput =  document.querySelector(`#first-payment`);
         const creditAmountInput = document.querySelector(`#credit-input`);
+        const percentAmount = document.querySelector(`#payment-percent`);
 
         if (Number(percent) === getMaxFirstPaymentPercent()) {
             percent = (creditAmountInput.value - minCredit - motherCapital) / document.querySelector(`#credit-input`).value * 100 / 5 * 5;
             firstPaymentInput.value = Number(creditAmountInput.value * percent)
+            percentAmount.textContent = percent + `%`
         }
 
         firstPaymentInput.value = creditAmountInput.value * percent / 100;
         document.querySelector(`#first-payment + label`).textContent = (document.querySelector(`#credit-input`).value * percent / 100).toLocaleString('ru') + ` рублей`;
-        onCreditSumChange(creditAmountInput.value - motherCapital - firstPaymentInput.value)
+        onCreditSumChange(creditAmountInput.value - motherCapital - firstPaymentInput.value);
+        percentAmount.textContent = Number(percent).toFixed(0) + `%`
+        checkCreditPercentPerMonth()
     }, 500);
 
     const CreditDurationRangeCheck = debounce((evt) => {
@@ -240,7 +246,7 @@ const Params = ({
                         <input type="range" onChange={firstPaymentRangeChange()} id='first-payment-percent' defaultValue={CREDIT_TYPE.CAR === creditType ? `20` : `10`} min={CREDIT_TYPE.CAR === creditType ? `20` : `10`}  step="5" className="credit-calc__range-input" />
                     </div>
                     <div className="credit-calc__min-max-range">
-                        <span className="credit-calc__range-amount">{CREDIT_TYPE.CAR === creditType ? `20%` : `10%`}</span>
+                        <span id="payment-percent" className="credit-calc__range-amount">{CREDIT_TYPE.CAR === creditType ? `20%` : `10%`}</span>
                     </div>
                 </div>
             
